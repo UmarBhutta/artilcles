@@ -33,10 +33,15 @@ dependencies:
   # Url Launcher
   url_launcher: ^6.0.7
 
+  # Equatable
+  equatable: ^2.0.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: ^2.0.0
+  bloc_test: ^8.0.2
+  mockito: ^5.0.10
 
 
 # The following section is specific to Flutter.

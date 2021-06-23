@@ -1,8 +1,12 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:news_list/api/models/article.dart';
 
 @immutable
-abstract class BlocState{}
+abstract class BlocState extends Equatable{
+  @override
+  List<Object> get props => [];
+}
 
 class ArticlesLoadingInProgress extends BlocState{}
 

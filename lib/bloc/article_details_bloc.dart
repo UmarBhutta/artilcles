@@ -9,6 +9,9 @@ class ArticleDetailsBloc extends BaseBloc<BlocEvent,BlocState>{
   @override
   Stream<BlocState> mapEventToState(BlocEvent event) async*{
     if(event is ArticleSelected){
+      //show progress
+       yield ArticleDetailsLoadingInProgress();
+       //show article details
        yield ArticleDetailsSuccess(event.article);
     }
   }
