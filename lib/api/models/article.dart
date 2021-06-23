@@ -10,7 +10,7 @@ class Article {
   bool hosted;
   String sourceUrl;
   Publisher publisher;
-  Image image;
+  ArticleImage image;
 
   Article(
       {this.title,
@@ -30,7 +30,7 @@ class Article {
     hosted = json['hosted'];
     sourceUrl = json['sourceUrl'];
     publisher = json['publisher'] != null ? Publisher.fromJson(json['publisher']) : null;
-    image = json['image'] != null ?  Image.fromJson(json['image']) : null;
+    image = json['image'] != null ?  ArticleImage.fromJson(json['image']) : null;
   }
 
   Map<String, dynamic> toJson() {

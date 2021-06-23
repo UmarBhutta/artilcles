@@ -7,7 +7,10 @@ import 'package:news_list/bloc/base/bloc_event.dart';
 import 'package:news_list/bloc/base/bloc_state.dart';
 import 'package:news_list/ui/article_details.dart';
 import 'package:news_list/ui/base/show_details.dart';
+import 'package:news_list/utils/image_view.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'article_item.dart';
 
 class ArticlesPage extends StatelessWidget implements LoadDetails,LoadUrl{
   @override
@@ -24,18 +27,7 @@ class ArticlesPage extends StatelessWidget implements LoadDetails,LoadUrl{
                 itemCount: state.articles.length,
                 itemBuilder: (context, index) {
                   final article = state.articles[index];
-                  return InkWell(child:ListTile(
-                    key: Key(article.id),
-                    leading: Icon(Icons.article),
-                    title: Text(article.title,),
-                    trailing: Icon(
-                      article.hosted == true ? Icons.details : Icons.travel_explore,
-                      color: Colors.blueAccent,
-                    ),
-                    subtitle: article.publisher != null
-                        ? Text(article.publisher.name,style: Theme.of(context).textTheme.subtitle2,)
-                        : null,
-                  ),onTap: () => _selectArticle(context,article),);
+                  return ArticleItem(article: article,callback: _selectArticle);
                 },
               );
             } else {
@@ -59,7 +51,7 @@ class ArticlesPage extends StatelessWidget implements LoadDetails,LoadUrl{
   void openDetailsScreen(BuildContext context,Article article) {
     final route = MaterialPageRoute(builder: (context) => BlocProvider(
       create: (_) => ArticleDetailsBloc()..add(ArticleSelected(article: article)),
-      child: Details(title: article.title,),
+      child: Details(title: article.publisher.name,),
     ));
     Navigator.push(context, route);
   }

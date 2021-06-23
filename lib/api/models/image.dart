@@ -1,10 +1,10 @@
 
-class Image {
+class ArticleImage {
   String url;
 
-  Image({this.url});
+  ArticleImage({this.url});
 
-  Image.fromJson(Map<String, dynamic> json) {
+  ArticleImage.fromJson(Map<String, dynamic> json) {
     url = json['url'];
   }
 
