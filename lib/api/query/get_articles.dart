@@ -7,6 +7,9 @@ const getArticles = r'''
     content
     hosted
     sourceUrl
+    publisher{
+      name
+    }
     image{
       url
     }

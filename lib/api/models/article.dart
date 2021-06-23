@@ -1,4 +1,5 @@
 
+import 'package:news_list/api/models/Publisher.dart';
 import 'package:news_list/api/models/image.dart';
 
 class Article {
@@ -8,6 +9,7 @@ class Article {
   String content;
   bool hosted;
   String sourceUrl;
+  Publisher publisher;
   Image image;
 
   Article(
@@ -17,6 +19,7 @@ class Article {
         this.content,
         this.hosted,
         this.sourceUrl,
+        this.publisher,
         this.image});
 
   Article.fromJson(Map<String, dynamic> json) {
@@ -26,17 +29,21 @@ class Article {
     content = json['content'];
     hosted = json['hosted'];
     sourceUrl = json['sourceUrl'];
-    image = json['image'] != null ? new Image.fromJson(json['image']) : null;
+    publisher = json['publisher'] != null ? Publisher.fromJson(json['publisher']) : null;
+    image = json['image'] != null ?  Image.fromJson(json['image']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['title'] = this.title;
     data['id'] = this.id;
     data['slug'] = this.slug;
     data['content'] = this.content;
     data['hosted'] = this.hosted;
     data['sourceUrl'] = this.sourceUrl;
+    if(this.publisher != null){
+      data['publisher'] = this.publisher.toJson();
+    }
     if (this.image != null) {
       data['image'] = this.image.toJson();
     }

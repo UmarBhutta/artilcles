@@ -32,8 +32,8 @@ class ArticlesPage extends StatelessWidget implements LoadDetails,LoadUrl{
                       article.hosted == true ? Icons.details : Icons.travel_explore,
                       color: Colors.blueAccent,
                     ),
-                    subtitle: article.content != null
-                        ? Text(article.content,maxLines: 5,)
+                    subtitle: article.publisher != null
+                        ? Text(article.publisher.name,style: Theme.of(context).textTheme.subtitle2,)
                         : null,
                   ),onTap: () => _selectArticle(context,article),);
                 },
