@@ -1,5 +1,5 @@
 const getArticles = r'''
-  query{
+query{
   allArticles{
     title
     id
@@ -10,8 +10,13 @@ const getArticles = r'''
     publisher{
       name
     }
+    _publishedAt
     image{
       url
+    }
+    categories{
+      name
+      id
     }
   }
 }

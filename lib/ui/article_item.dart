@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_list/api/models/article.dart';
-import 'package:news_list/utils/image_view.dart';
+import 'package:news_list/utils/widgets/image_view.dart';
 
 class ArticleItem extends StatelessWidget{
 

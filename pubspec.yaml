@@ -39,6 +39,11 @@ dependencies:
   # Image Loading from the network
   cached_network_image: ^3.0.0
 
+  # Intl mainly used for DateTime Parsing
+  intl: ^0.17.0
+
+  #Markdown rendering
+  flutter_markdown: ^0.6.2
 
 dev_dependencies:
   flutter_test:
