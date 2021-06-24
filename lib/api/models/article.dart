@@ -1,5 +1,6 @@
 
 import 'package:news_list/api/models/Publisher.dart';
+import 'package:news_list/api/models/category.dart';
 import 'package:news_list/api/models/image.dart';
 
 class Article {
@@ -10,7 +11,9 @@ class Article {
   bool hosted;
   String sourceUrl;
   Publisher publisher;
+  String publishDate;
   ArticleImage image;
+  List<Category> categories;
 
   Article(
       {this.title,
@@ -20,7 +23,9 @@ class Article {
         this.hosted,
         this.sourceUrl,
         this.publisher,
-        this.image});
+        this.publishDate,
+        this.image,
+        this.categories});
 
   Article.fromJson(Map<String, dynamic> json) {
     title = json['title'];
@@ -30,7 +35,14 @@ class Article {
     hosted = json['hosted'];
     sourceUrl = json['sourceUrl'];
     publisher = json['publisher'] != null ? Publisher.fromJson(json['publisher']) : null;
+    publishDate = json['_publishedAt'];
     image = json['image'] != null ?  ArticleImage.fromJson(json['image']) : null;
+    if( json['categories'] != null ){
+      categories = [];
+      json['categories'].forEach((value){
+        categories.add(Category.fromJson(value));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -44,8 +56,12 @@ class Article {
     if(this.publisher != null){
       data['publisher'] = this.publisher.toJson();
     }
+    data['_publishedAt'] = this.publishDate;
     if (this.image != null) {
       data['image'] = this.image.toJson();
+    }
+    if (this.categories != null) {
+      data['categories'] = this.categories.map((v) => v.toJson()).toList();
     }
     return data;
   }
