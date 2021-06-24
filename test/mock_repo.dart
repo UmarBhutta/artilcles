@@ -1,10 +1,6 @@
-import 'dart:convert';
-import 'dart:ffi';
 
 import 'package:mockito/mockito.dart';
 import 'package:news_list/api/api_client.dart';
-import 'package:news_list/api/models/article.dart';
-import 'package:news_list/api/resource.dart';
 
 class MockGraphQlApiClient extends Mock implements Repository{
 
