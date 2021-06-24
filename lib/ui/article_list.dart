@@ -7,7 +7,6 @@ import 'package:news_list/bloc/base/bloc_event.dart';
 import 'package:news_list/bloc/base/bloc_state.dart';
 import 'package:news_list/ui/article_details.dart';
 import 'package:news_list/ui/base/show_details.dart';
-import 'package:news_list/utils/image_view.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'article_item.dart';
