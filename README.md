@@ -3,8 +3,11 @@
 Articles is sample app developed with Flutter, which fetch the Article list form the server using GraphQL and show them on list.
 The main goal of this app is to be a sample of how to build an high quality Flutter application that uses the BloC Design Pattern,Network image loading, GraphQL queries using clean Architecture approach in Dart.
 
-<img src="./documentation/list.png"/>
-<img src="./documentation/details.png"/>
+<p align="center">
+  <img  src="./documentation/list.png" width="45%">
+&nbsp; &nbsp; &nbsp; &nbsp;
+  <img  src="./documentation/details.png" width="45%">
+</p>
 
 ## Architecture
 The app uses BloC [Business Logic Component]. It provides a more elegant and reusable way of managing state in Flutter applications which takes advantage of flutter’s UI reactive model, separation of concern, testability, and a lot more.
